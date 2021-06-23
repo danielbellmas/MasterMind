@@ -1,5 +1,8 @@
 # MasterMind
 
+![‏‏לכידה](https://user-images.githubusercontent.com/76179660/123158609-b00f0000-d474-11eb-9c7c-753e9ec10286.PNG)
+
+
 Mastermind is a code-breaking game against the computer.
 
 ## Rules
