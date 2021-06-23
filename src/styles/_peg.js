@@ -9,5 +9,6 @@ export default makeStyles(() => ({
     height: "50px",
     display: "flex",
     margin: "1px",
+    boxShadow: "2px 6px 22px -6px rgba(0,0,0,0.75)",
   },
 }));
