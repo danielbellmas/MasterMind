@@ -8,5 +8,6 @@ export default makeStyles(() => ({
     width: "50px",
     height: "50px",
     display: "flex",
+    margin: "1px",
   },
 }));

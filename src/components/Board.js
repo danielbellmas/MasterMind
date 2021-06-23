@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Grid, Badge, Icon } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import Swal from "sweetalert2";
 import useStyles from "../styles/_board";
 import RowPegs from "./RowPegs";
@@ -14,7 +14,7 @@ function Board() {
       //10||11
       Swal.fire({
         icon: "error",
-        title: "You Lost, try again!",
+        title: "You Lost, Better luck next time!",
         showConfirmButton: true,
         confirmButtonText: "New Game",
       }).then((result) => {

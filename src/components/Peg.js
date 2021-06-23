@@ -1,9 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import useStyles from "../styles/_peg";
 
+const incrementLocalStorage = (key) => {
+  localStorage.setItem(key, JSON.parse(localStorage.getItem(key)) + 1);
+};
+
 const Peg = ({
   index,
+  rowIndex,
   computerSet,
   guessRecord,
   setGuessRecord,
@@ -12,6 +17,7 @@ const Peg = ({
   colorsDropDownList,
   setColorsDropDownList,
   disabled,
+  numOfGuesses,
 }) => {
   const [color, setColor] = useState("");
   const [isChanged, setIsChanged] = useState(false);
@@ -24,26 +30,29 @@ const Peg = ({
     let resultOfGuess = "";
     let iconOfGuess = "";
     let textColorOfGuess = "";
+    console.log({ computerColor });
+    console.log({ colorPicked });
     if (colorPicked === computerColor) {
-      resultOfGuess = "Direct Hit!";
+      resultOfGuess = "Direct Hit";
       iconOfGuess = "success";
       textColorOfGuess = "black";
     } else if (computerSet.indexOf(colorPicked) !== -1) {
-      resultOfGuess = "Hit!";
+      resultOfGuess = "Hit";
       iconOfGuess = "info";
       textColorOfGuess = "white";
     } else {
-      resultOfGuess = "Miss!";
+      resultOfGuess = "Miss";
       iconOfGuess = "error";
       textColorOfGuess = "red";
     }
-    Swal.fire({
-      icon: iconOfGuess,
-      title: resultOfGuess,
-      width: "200px",
-      showConfirmButton: false,
-      timer: 1000,
-    });
+    incrementLocalStorage(resultOfGuess);
+    // Swal.fire({
+    //   icon: iconOfGuess,
+    //   title: resultOfGuess,
+    //   width: "200px",
+    //   showConfirmButton: false,
+    //   timer: 1000,
+    // });
     setGuessRecord([...guessRecord, { textColorOfGuess, resultOfGuess }]);
   };
 
@@ -55,9 +64,9 @@ const Peg = ({
     }).then((result) => {
       if (result.dismiss !== Swal.DismissReason.backdrop) {
         let selectedColor = colorsDropDownList[parseInt(result.value)];
+        console.log(colorsDropDownList);
         handleMessageAfterGuess(selectedColor);
         setColor(selectedColor);
-        console.log(selectedColor);
         setCurrentPegGuessedColors([...currentPegGuessedColors, selectedColor]);
         //Filters out the color that has been selected
         setColorsDropDownList(
@@ -73,7 +82,10 @@ const Peg = ({
   return (
     <div
       className={classes.circle}
-      style={{ background: `${color}` }}
+      style={{
+        background:
+          disabled && rowIndex > numOfGuesses ? "lightgrey" : `${color}`,
+      }}
       onClick={!isChanged && !disabled ? handleOnClick : null}
     ></div>
   );

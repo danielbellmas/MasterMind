@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import useStyles from "../styles/_sidebar";
 
 const SideBar = ({ guessRecord }) => {
@@ -8,7 +8,8 @@ const SideBar = ({ guessRecord }) => {
     <aside className={classes.root}>
       {guessRecord.map((result, index) => (
         <span key={index} style={{ color: result["textColorOfGuess"] }}>
-          {result["resultOfGuess"] + " "}
+          {result["resultOfGuess"] +
+            (index !== guessRecord.length - 1 ? "-" : "")}
         </span>
       ))}
     </aside>

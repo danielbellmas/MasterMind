@@ -2,14 +2,34 @@ import React, { useState, useEffect, useContext } from "react";
 import { Grid } from "@material-ui/core";
 import Peg from "../components/Peg";
 import SideBar from "./SideBar";
-import { COLORS, ComputerContext } from "../GameContext";
+import { COLORS, ComputerContext, LevelContext } from "../GameContext";
 import Swal from "sweetalert2";
 
-const RowPegs = ({ numOfGuesses, setNumOfGuesses, disabled }) => {
+const RowPegs = ({ numOfGuesses, setNumOfGuesses, disabled, index }) => {
   const [currentPegGuessedColors, setCurrentPegGuessedColors] = useState([]);
   const [computerSet] = useContext(ComputerContext);
+  const [levelSelected] = useContext(LevelContext);
   const [guessRecord, setGuessRecord] = useState([]);
-  const [colorsDropDownList, setColorsDropDownList] = useState(COLORS);
+  const [colorsDropDownList, setColorsDropDownList] = useState([]);
+  const colorsByDifficulty = () => {
+    let colors = [];
+    switch (levelSelected) {
+      case "Easy":
+        colors = COLORS.slice(0, 7);
+        break;
+      case "Medium":
+        colors = COLORS.slice(0, 10);
+        break;
+      default:
+        colors = COLORS;
+        break;
+    }
+    return colors.sort();
+  };
+
+  useEffect(() => {
+    setColorsDropDownList(colorsByDifficulty());
+  }, [levelSelected]);
 
   //Check if user won and show message
   useEffect(() => {
@@ -34,8 +54,10 @@ const RowPegs = ({ numOfGuesses, setNumOfGuesses, disabled }) => {
           );
           if (result.isConfirmed) window.location.reload();
         });
-      } else setNumOfGuesses(numOfGuesses + 1);
-      console.log(numOfGuesses);
+      } else {
+        // Swal.fire({icon:"info",title:`${}`})
+        setNumOfGuesses(numOfGuesses + 1);
+      }
     }
   }, [currentPegGuessedColors]);
 
@@ -46,6 +68,7 @@ const RowPegs = ({ numOfGuesses, setNumOfGuesses, disabled }) => {
           <Peg
             key={item}
             index={item - 1}
+            rowIndex={index}
             computerSet={computerSet}
             guessRecord={guessRecord}
             setGuessRecord={setGuessRecord}
@@ -55,6 +78,7 @@ const RowPegs = ({ numOfGuesses, setNumOfGuesses, disabled }) => {
             colorsDropDownList={colorsDropDownList}
             setColorsDropDownList={setColorsDropDownList}
             disabled={disabled}
+            numOfGuesses={numOfGuesses}
           />
         ))}
         <SideBar key={numOfGuesses} guessRecord={guessRecord} />

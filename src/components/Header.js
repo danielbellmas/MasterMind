@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import LevelSelect from "./LevelSelect";
 
 const Header = () => {
   const showRules = () => {
@@ -19,10 +20,12 @@ const Header = () => {
     });
   };
   return (
-    <header style={{ display: "grid", placeItems: "center" }}>
+    <header
+      style={{ display: "grid", placeItems: "center", gridAutoFlow: "column" }}
+    >
       <h1>MasterMind</h1>
 
-      <div style={{ gridAutoFlow: "column" }}>
+      <div style={{}}>
         <Button
           color="primary"
           className="rules-btn"
@@ -30,6 +33,7 @@ const Header = () => {
           type="button"
           variant="contained"
           onClick={showRules}
+          style={{ marginRight: "7px" }}
         >
           Rules
         </Button>
@@ -45,6 +49,7 @@ const Header = () => {
           Statistics
         </Button>
       </div>
+      <LevelSelect />
     </header>
   );
 };

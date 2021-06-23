@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext } from "react";
 
 export const ComputerContext = createContext();
+export const LevelContext = createContext();
 
 export const COLORS = [
   "blue",
@@ -10,14 +11,20 @@ export const COLORS = [
   "pink",
   "red",
   "yellow",
+  "black",
+  "brown",
+  "aqua",
+  "chocolate",
+  "crimson",
 ];
 
 export const ComputerProvider = (props) => {
   const [computerSet, setComputerSet] = useState([]);
+  const [levelSelected, setLevelSelected] = useState("Easy");
+
   useEffect(() => {
     createUniquePegSet();
   }, []);
-  console.log({ computerSet });
   const createUniquePegSet = () => {
     let ComputerpegSet = [];
     while (ComputerpegSet.length < 4) {
@@ -26,10 +33,12 @@ export const ComputerProvider = (props) => {
     }
     setComputerSet(ComputerpegSet);
   };
-
+  console.log(computerSet);
   return (
     <ComputerContext.Provider value={[computerSet, setComputerSet]}>
-      {props.children}
+      <LevelContext.Provider value={[levelSelected, setLevelSelected]}>
+        {props.children}
+      </LevelContext.Provider>
     </ComputerContext.Provider>
   );
 };

@@ -4,11 +4,10 @@ export default makeStyles(() => ({
   root: {
     float: "right",
     position: "relative",
-    padding: "5px",
+    padding: "7px",
     width: "30rem",
-    backgroundColor: "#D0B892",
-    fontSize: "2rem",
-    background: "red",
+    borderBottom: "2px solid black",
+    fontSize: "1.5rem",
     display: "flex",
   },
 }));

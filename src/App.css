@@ -4,7 +4,8 @@
   padding: 0;
 }
 .app {
-  background-image: url("./assets/background.jpg");
+  background-image: url("./assets/wood-background.jpg");
+
   height: 100vh;
 }
 h1 {
@@ -17,7 +18,7 @@ h1 {
     to right,
     rgb(255, 214, 100),
     rgb(255, 214, 100) 50%,
-    red 50%
+    #5a3e2b 50%
   );
   background-clip: text;
   -webkit-background-clip: text;
