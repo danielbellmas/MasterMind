@@ -46,13 +46,7 @@ const Peg = ({
       textColorOfGuess = "red";
     }
     incrementLocalStorage(resultOfGuess);
-    // Swal.fire({
-    //   icon: iconOfGuess,
-    //   title: resultOfGuess,
-    //   width: "200px",
-    //   showConfirmButton: false,
-    //   timer: 1000,
-    // });
+
     setGuessRecord([...guessRecord, { textColorOfGuess, resultOfGuess }]);
   };
 
@@ -64,16 +58,17 @@ const Peg = ({
     }).then((result) => {
       if (result.dismiss !== Swal.DismissReason.backdrop) {
         let selectedColor = colorsDropDownList[parseInt(result.value)];
-        console.log(colorsDropDownList);
         handleMessageAfterGuess(selectedColor);
         setColor(selectedColor);
         setCurrentPegGuessedColors([...currentPegGuessedColors, selectedColor]);
+
         //Filters out the color that has been selected
         setColorsDropDownList(
           colorsDropDownList.filter((color) => {
             return color !== selectedColor;
           })
         );
+
         setIsChanged(true);
       }
     });

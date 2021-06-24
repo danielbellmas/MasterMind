@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CSVLink } from "react-csv";
 import { Button } from "@material-ui/core";
+import useStyles from "../styles/_statistics";
 
 const initializeLocalStorage = (key) => {
   localStorage.setItem(
@@ -12,6 +13,9 @@ const initializeLocalStorage = (key) => {
 
 const Statistics = () => {
   const [data, setData] = useState([]);
+
+  const classes = useStyles();
+
   useEffect(() => {
     //Initialize lost and won data
     initializeLocalStorage("won");
@@ -35,7 +39,7 @@ const Statistics = () => {
     setData(data);
   };
   return (
-    <div style={{ height: "100vh", display: "grid", placeItems: "center" }}>
+    <div className={classes.btns}>
       <Button
         color="secondary"
         size="medium"
@@ -44,19 +48,12 @@ const Statistics = () => {
         component={Link}
         to="/"
       >
-        Go to Game
+        Back to Game
       </Button>
 
       <CSVLink data={data} onClick={handleStatistics}>
-        Export to CVS
+        Export to CSV
       </CSVLink>
-      <table>
-        <tr>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Age</th>
-        </tr>
-      </table>
     </div>
   );
 };

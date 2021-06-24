@@ -10,8 +10,8 @@ function Board() {
   const classes = useStyles();
 
   useEffect(() => {
+    // 11 beacuse we are starting at 1
     if (numOfGuesses === 11) {
-      //10||11
       Swal.fire({
         icon: "error",
         title: "You Lost, Better luck next time!",

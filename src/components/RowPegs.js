@@ -55,7 +55,6 @@ const RowPegs = ({ numOfGuesses, setNumOfGuesses, disabled, index }) => {
           if (result.isConfirmed) window.location.reload();
         });
       } else {
-        // Swal.fire({icon:"info",title:`${}`})
         setNumOfGuesses(numOfGuesses + 1);
       }
     }
