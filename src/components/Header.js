@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import LevelSelect from "./LevelSelect";
 import useStyles from "../styles/_header";
 
+let executed = false;
+
 const Header = () => {
   const classes = useStyles();
 
-  const [executed, setExecuted] = useState(false);
   useEffect(() => {
     if (!executed) {
       showRules();
-      setExecuted(true);
+      executed = true;
     }
   }, []);
 
