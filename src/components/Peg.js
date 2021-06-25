@@ -28,21 +28,17 @@ const Peg = ({
     let computerColor = computerSet[index];
 
     let resultOfGuess = "";
-    let iconOfGuess = "";
     let textColorOfGuess = "";
     console.log({ computerColor });
     console.log({ colorPicked });
     if (colorPicked === computerColor) {
       resultOfGuess = "Direct Hit";
-      iconOfGuess = "success";
       textColorOfGuess = "black";
     } else if (computerSet.indexOf(colorPicked) !== -1) {
       resultOfGuess = "Hit";
-      iconOfGuess = "info";
       textColorOfGuess = "white";
     } else {
       resultOfGuess = "Miss";
-      iconOfGuess = "error";
       textColorOfGuess = "red";
     }
     incrementLocalStorage(resultOfGuess);

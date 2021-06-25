@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import { Grid } from "@material-ui/core";
 import Swal from "sweetalert2";
 import useStyles from "../styles/_board";
