@@ -50,7 +50,11 @@ const Statistics = () => {
       </Button>
       <div className={classes.table}>
         <CSVLink filename="MasterMind_Report.csv" data={data}>
-          Export to CSV<i class="fa fa-download" aria-hidden="true"></i>
+          <i
+            class="fa fa-download"
+            aria-hidden="true"
+            title="Export to CSV"
+          ></i>
         </CSVLink>
         <StatisticsTable data={data} />
       </div>
