@@ -29,7 +29,8 @@ const Peg = ({
   useEffect(() => {
     if (played) {
       Swal.fire({
-        title: "Are you sure you want to start again?",
+        title: "Changin the difficulty will restart the game",
+        text: "Are you sure you want restart?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",

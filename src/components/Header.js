@@ -57,6 +57,16 @@ const Header = () => {
       <div>
         <Button
           className={classes.btn}
+          color="secondary"
+          size="large"
+          type="button"
+          variant="contained"
+          onClick={handleRestartGame}
+        >
+          Restart Game
+        </Button>
+        <Button
+          className={classes.btn}
           color="primary"
           size="large"
           type="button"
@@ -66,7 +76,6 @@ const Header = () => {
           Rules
         </Button>
         <Button
-          className={classes.btn}
           size="large"
           type="button"
           variant="contained"
@@ -74,15 +83,6 @@ const Header = () => {
           to="/statistics"
         >
           Statistics
-        </Button>
-        <Button
-          color="secondary"
-          size="large"
-          type="button"
-          variant="contained"
-          onClick={handleRestartGame}
-        >
-          Restart Game
         </Button>
       </div>
       <LevelSelect />
