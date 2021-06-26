@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import background from "../../assets/statistics-background.jpg";
+import background from "../../assets/wood-background.jpg";
 
 export default makeStyles(() => ({
   statistics: {
@@ -7,7 +7,6 @@ export default makeStyles(() => ({
     placeItems: "center",
     height: "100vh",
     padding: "10px",
-    // background: "rgba(242,200,100,0.5)",
     backgroundImage: `url(${background})`,
   },
   btn: {
