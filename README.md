@@ -1,5 +1,7 @@
 # MasterMind
 
+Link to the website: https://mastermind-game-react.netlify.app
+
 ![‏‏לכידה](https://user-images.githubusercontent.com/76179660/123514820-73721d00-d69d-11eb-8327-b62d06a360b9.PNG)
 
 Mastermind is a code-breaking game against the computer.
