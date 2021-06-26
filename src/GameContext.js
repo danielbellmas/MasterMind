@@ -30,12 +30,13 @@ export const ComputerProvider = (props) => {
 
   useEffect(() => {
     createUniquePegSet();
-  }, []);
+  }, [levelSelected]);
   const createUniquePegSet = () => {
     let ComputerpegSet = [];
     while (ComputerpegSet.length < 4) {
+      let colorsByLevel = colorsByDifficulty[levelSelected];
       let rand =
-        colorsByDifficulty[levelSelected][Math.floor(Math.random() * 7)];
+        colorsByLevel[Math.floor(Math.random() * colorsByLevel.length)];
       if (ComputerpegSet.indexOf(rand) === -1) ComputerpegSet.push(rand);
     }
     setComputerSet(ComputerpegSet);
