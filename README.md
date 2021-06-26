@@ -1,8 +1,32 @@
 # MasterMind
 
-![‏‏לכידה](https://user-images.githubusercontent.com/76179660/123158609-b00f0000-d474-11eb-9c7c-753e9ec10286.PNG)
+Link to the website: https://mastermind-game-react.netlify.app
+
+![‏‏לכידה](https://user-images.githubusercontent.com/76179660/123514820-73721d00-d69d-11eb-8327-b62d06a360b9.PNG)
 
 Mastermind is a code-breaking game against the computer.
+
+## What's New? UI, UX improvements
+
+**UI**
+
+1. The border is removed from the pegs which makes for a cleaner look.
+
+2. The statistics page has a background and shows the table that is exported when the user clicks on the download icon.
+
+3. When hovering over the title "MasterMind", the cursor stays as the default.
+
+4. The level drop-down list is larger and easier to read.
+
+**UX**
+
+1. The guess messages correspond with the order of the pegs (from left to right).
+
+2. A restart game button
+
+3. Rules are shown only when the user first enters the site (using localStorage).
+
+4. When hovering over a peg the cursor turns to a pointer, indicating it's clickable.
 
 ## Rules
 
