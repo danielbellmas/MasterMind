@@ -19,6 +19,26 @@ When the player guesses the correct combination, the game is over and they recei
 
 If the player doesn’t manage to guess the correct combination within 10 attempts they receive a “You lost!” message .
 
+## What's New? UI, UX improvements
+
+**UI**
+
+1. The border is removed from the pegs which makes for a cleaner look.
+
+2. The statistics page has a background and shows the table that is exported when the user clicks on the download icon.
+
+3. When hovering over the title "MasterMind", the cursor stays as the default.
+
+4. The level drop-down list is larger and easier to read.
+
+**UX**
+
+1. A restart game button
+
+2. Rules are shown only when the user first enters the site (using localStorage).
+
+3. When hovering over a peg the cursor turns to a pointer, indicating it's clickable.
+
 ## Installation
 
 Install mastermind with npm
