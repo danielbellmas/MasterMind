@@ -18,11 +18,13 @@ Mastermind is a code-breaking game against the computer.
 
 **UX**
 
-1. A restart game button
+1. The guess messages correspond with the order of the pegs (from left to right).
 
-2. Rules are shown only when the user first enters the site (using localStorage).
+2. A restart game button
 
-3. When hovering over a peg the cursor turns to a pointer, indicating it's clickable.
+3. Rules are shown only when the user first enters the site (using localStorage).
+
+4. When hovering over a peg the cursor turns to a pointer, indicating it's clickable.
 
 ## Rules
 
