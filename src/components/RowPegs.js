@@ -70,6 +70,7 @@ const RowPegs = ({ numOfGuesses, setNumOfGuesses, disabled, rowIndex }) => {
             setColorsDropDownList={setColorsDropDownList}
             disabled={disabled}
             numOfGuesses={numOfGuesses}
+            levelSelected={levelSelected}
           />
         ))}
         <SideBar key={numOfGuesses} guessRecord={guessRecord} />

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import Swal from "sweetalert2";
 import useStyles from "../styles/_peg";
 
 const incrementLocalStorage = (key) => {
   localStorage.setItem(key, JSON.parse(localStorage.getItem(key)) + 1);
 };
+let played = false;
 
 const Peg = ({
   index,
@@ -18,12 +20,33 @@ const Peg = ({
   setColorsDropDownList,
   disabled,
   numOfGuesses,
+  levelSelected,
 }) => {
   const [color, setColor] = useState("");
   const [isChanged, setIsChanged] = useState(false);
   const classes = useStyles();
 
+  useEffect(() => {
+    if (played) {
+      Swal.fire({
+        title: "Are you sure you want to start again?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes",
+        cancelButtonText: "No",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.reload();
+        }
+      });
+    }
+  }, [levelSelected]);
+
   const handleMessageAfterGuess = (selectedColor) => {
+    played = true;
+
     let colorPicked = selectedColor;
     let computerColor = computerSet[index];
 

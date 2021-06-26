@@ -36,7 +36,7 @@ const Header = () => {
 
   const handleRestartGame = () => {
     Swal.fire({
-      title: "Are you sure you want to start again?",
+      title: "Are you sure you want to restart the game?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
