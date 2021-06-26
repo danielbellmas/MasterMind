@@ -27,14 +27,14 @@ function Board() {
   }, [numOfGuesses]);
   return (
     <Grid className={classes.container} container justify="space-around">
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
+      {[...Array(10).keys()].map((item) => (
         <Grid item key={item}>
           <RowPegs
             key={item}
-            index={item}
+            rowIndex={item + 1}
             numOfGuesses={numOfGuesses}
             setNumOfGuesses={setNumOfGuesses}
-            disabled={item !== numOfGuesses}
+            disabled={item + 1 !== numOfGuesses}
           />
         </Grid>
       ))}

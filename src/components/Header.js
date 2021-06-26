@@ -5,15 +5,16 @@ import Swal from "sweetalert2";
 import LevelSelect from "./LevelSelect";
 import useStyles from "../styles/_header";
 
-let executed = false;
+let executed = localStorage.getItem("RulesExecuted");
 
 const Header = () => {
   const classes = useStyles();
 
   useEffect(() => {
-    if (!executed) {
+    if (executed === null) {
       showRules();
       executed = true;
+      localStorage.setItem("RulesExecuted", executed);
     }
   }, []);
 
@@ -27,8 +28,9 @@ const Header = () => {
       1. When you guess the correct color in the correct position you receive a “Direct Hit” (Black).<br/>
       2. When you guess the correct color but in the wrong position you receive a “Hit” (White).<br/>
       3. When you guess a color that does not appear in the combination you receive a “Miss” (Red).<br/><br/>
-      <b>To Start Click OK and then click on one of the circles to choose a color.<br/><br/>
+      <b>To Start Click START and then click on one of the circles to choose a color.<br/><br/>
       Good Luck!</b></p>`,
+      confirmButtonText: "START",
     });
   };
   return (

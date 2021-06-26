@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { InputLabel, MenuItem, FormControl, Select } from "@material-ui/core";
-import useStyles from "../styles/_levelselect";
+import useStyles from "../styles/_levelSelect";
 import { LevelContext } from "../GameContext";
 
 export default function LevelSelect() {

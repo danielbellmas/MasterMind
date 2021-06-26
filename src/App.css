@@ -5,9 +5,9 @@
 }
 .app {
   background-image: url("./assets/wood-background.jpg");
-
   height: 100vh;
 }
+
 h1 {
   font-size: 3.6rem;
   text-align: center;
@@ -29,6 +29,7 @@ h1 {
 }
 h1:hover {
   background-position: 0 100%;
+  cursor: default;
 }
 
 .rules-btn {

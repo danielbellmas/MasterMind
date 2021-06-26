@@ -1,11 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import "./App.css";
 import { Container } from "@material-ui/core";
 import Board from "./components/Board";
 import Header from "./components/Header";
-import Statistics from "./components/Statistics";
+import Statistics from "./components/Statistics/Statistics";
 
 const App = () => {
   return (

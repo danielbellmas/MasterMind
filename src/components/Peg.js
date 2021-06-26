@@ -43,7 +43,10 @@ const Peg = ({
     }
     incrementLocalStorage(resultOfGuess);
 
-    setGuessRecord([...guessRecord, { textColorOfGuess, resultOfGuess }]);
+    setGuessRecord([
+      ...guessRecord,
+      { index, textColorOfGuess, resultOfGuess },
+    ]);
   };
 
   const handleOnClick = () => {
@@ -76,6 +79,7 @@ const Peg = ({
       style={{
         background:
           disabled && rowIndex > numOfGuesses ? "lightgrey" : `${color}`,
+        cursor: !isChanged && !disabled ? "pointer" : "auto",
       }}
       onClick={!isChanged && !disabled ? handleOnClick : null}
     ></div>

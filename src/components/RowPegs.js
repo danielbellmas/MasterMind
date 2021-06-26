@@ -5,30 +5,22 @@ import SideBar from "./SideBar";
 import { COLORS, ComputerContext, LevelContext } from "../GameContext";
 import Swal from "sweetalert2";
 
-const RowPegs = ({ numOfGuesses, setNumOfGuesses, disabled, index }) => {
+const colorsByDifficulty = {
+  Easy: COLORS.slice(0, 7).sort(),
+  Medium: COLORS.slice(0, 10).sort(),
+  Difficult: COLORS.sort(),
+};
+
+const RowPegs = ({ numOfGuesses, setNumOfGuesses, disabled, rowIndex }) => {
   const [currentPegGuessedColors, setCurrentPegGuessedColors] = useState([]);
-  const [computerSet] = useContext(ComputerContext);
-  const [levelSelected] = useContext(LevelContext);
   const [guessRecord, setGuessRecord] = useState([]);
   const [colorsDropDownList, setColorsDropDownList] = useState([]);
-  const colorsByDifficulty = () => {
-    let colors = [];
-    switch (levelSelected) {
-      case "Easy":
-        colors = COLORS.slice(0, 7);
-        break;
-      case "Medium":
-        colors = COLORS.slice(0, 10);
-        break;
-      default:
-        colors = COLORS;
-        break;
-    }
-    return colors.sort();
-  };
+
+  const [computerSet] = useContext(ComputerContext);
+  const [levelSelected] = useContext(LevelContext);
 
   useEffect(() => {
-    setColorsDropDownList(colorsByDifficulty());
+    setColorsDropDownList(colorsByDifficulty[levelSelected]);
   }, [levelSelected]);
 
   //Check if user won and show message
@@ -63,11 +55,11 @@ const RowPegs = ({ numOfGuesses, setNumOfGuesses, disabled, index }) => {
   return (
     <Grid container>
       <Grid item style={{ display: "flex" }}>
-        {[1, 2, 3, 4].map((item) => (
+        {[...Array(4).keys()].map((item) => (
           <Peg
             key={item}
-            index={item - 1}
-            rowIndex={index}
+            index={item}
+            rowIndex={rowIndex}
             computerSet={computerSet}
             guessRecord={guessRecord}
             setGuessRecord={setGuessRecord}
