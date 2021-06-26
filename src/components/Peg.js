@@ -5,7 +5,7 @@ import useStyles from "../styles/_peg";
 const incrementLocalStorage = (key) => {
   localStorage.setItem(key, JSON.parse(localStorage.getItem(key)) + 1);
 };
-let played = false;
+export let played = false;
 
 const Peg = ({
   index,

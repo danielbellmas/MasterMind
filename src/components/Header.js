@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import LevelSelect from "./LevelSelect";
 import useStyles from "../styles/_header";
+import { played } from "./Peg";
 
 let executed = localStorage.getItem("RulesExecuted");
 
@@ -36,20 +37,22 @@ const Header = () => {
   };
 
   const handleRestartGame = (text) => {
-    Swal.fire({
-      title: `Are you sure you want to ${text} the game?`,
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes",
-      cancelButtonText: "No",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        history.push("/statistics");
-        window.location.reload();
-      }
-    });
+    if (played) {
+      Swal.fire({
+        title: `Are you sure you want to ${text} the game?`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes",
+        cancelButtonText: "No",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          history.push("/statistics");
+          window.location.reload();
+        }
+      });
+    } else history.push("/statistics");
   };
 
   return (
