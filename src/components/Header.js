@@ -33,24 +33,40 @@ const Header = () => {
       confirmButtonText: "START",
     });
   };
+
+  const handleRestartGame = () => {
+    Swal.fire({
+      title: "Are you sure you want to start again?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.reload();
+      }
+    });
+  };
+
   return (
     <header className={classes.header}>
       <h1>MasterMind</h1>
 
       <div>
         <Button
+          className={classes.btn}
           color="primary"
-          className="rules-btn"
           size="large"
           type="button"
           variant="contained"
           onClick={showRules}
-          style={{ marginRight: "7px" }}
         >
           Rules
         </Button>
         <Button
-          className="rules-btn"
+          className={classes.btn}
           size="large"
           type="button"
           variant="contained"
@@ -58,6 +74,15 @@ const Header = () => {
           to="/statistics"
         >
           Statistics
+        </Button>
+        <Button
+          color="secondary"
+          size="large"
+          type="button"
+          variant="contained"
+          onClick={handleRestartGame}
+        >
+          Restart Game
         </Button>
       </div>
       <LevelSelect />

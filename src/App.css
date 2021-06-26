@@ -32,10 +32,6 @@ h1:hover {
   cursor: default;
 }
 
-.rules-btn {
-  margin: 5px;
-  width: fit-content;
-}
 .swal-text {
   text-align: left;
 }

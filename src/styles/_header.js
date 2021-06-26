@@ -6,4 +6,7 @@ export default makeStyles((theme) => ({
     placeItems: "center",
     gridAutoFlow: "column",
   },
+  btn: {
+    marginRight: "10px",
+  },
 }));

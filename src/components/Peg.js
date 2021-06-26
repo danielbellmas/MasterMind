@@ -79,7 +79,7 @@ const Peg = ({
       style={{
         background:
           disabled && rowIndex > numOfGuesses ? "lightgrey" : `${color}`,
-        cursor: !isChanged && !disabled ? "pointer" : "auto",
+        cursor: !isChanged && !disabled ? "pointer" : "default",
       }}
       onClick={!isChanged && !disabled ? handleOnClick : null}
     ></div>
