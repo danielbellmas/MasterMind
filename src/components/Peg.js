@@ -50,8 +50,7 @@ const Peg = ({
 
     let resultOfGuess = "";
     let textColorOfGuess = "";
-    console.log({ computerColor });
-    console.log({ colorPicked });
+
     if (colorPicked === computerColor) {
       resultOfGuess = "Direct Hit";
       textColorOfGuess = "black";

@@ -18,6 +18,12 @@ export const COLORS = [
   "crimson",
 ];
 
+export const colorsByDifficulty = {
+  Easy: COLORS.slice(0, 7).sort(),
+  Medium: COLORS.slice(0, 10).sort(),
+  Difficult: COLORS.sort(),
+};
+
 export const ComputerProvider = (props) => {
   const [computerSet, setComputerSet] = useState([]);
   const [levelSelected, setLevelSelected] = useState("Easy");
@@ -28,7 +34,8 @@ export const ComputerProvider = (props) => {
   const createUniquePegSet = () => {
     let ComputerpegSet = [];
     while (ComputerpegSet.length < 4) {
-      let rand = COLORS[Math.floor(Math.random() * 7)];
+      let rand =
+        colorsByDifficulty[levelSelected][Math.floor(Math.random() * 7)];
       if (ComputerpegSet.indexOf(rand) === -1) ComputerpegSet.push(rand);
     }
     setComputerSet(ComputerpegSet);

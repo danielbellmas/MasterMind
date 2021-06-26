@@ -4,12 +4,7 @@ import Peg from "../components/Peg";
 import SideBar from "./SideBar";
 import { COLORS, ComputerContext, LevelContext } from "../GameContext";
 import Swal from "sweetalert2";
-
-const colorsByDifficulty = {
-  Easy: COLORS.slice(0, 7).sort(),
-  Medium: COLORS.slice(0, 10).sort(),
-  Difficult: COLORS.sort(),
-};
+import { colorsByDifficulty } from "../GameContext";
 
 const RowPegs = ({ numOfGuesses, setNumOfGuesses, disabled, rowIndex }) => {
   const [currentPegGuessedColors, setCurrentPegGuessedColors] = useState([]);
