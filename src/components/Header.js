@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Button } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import LevelSelect from "./LevelSelect";
 import useStyles from "../styles/_header";
@@ -9,6 +9,7 @@ let executed = localStorage.getItem("RulesExecuted");
 
 const Header = () => {
   const classes = useStyles();
+  const history = useHistory();
 
   useEffect(() => {
     if (executed === null) {
@@ -34,9 +35,9 @@ const Header = () => {
     });
   };
 
-  const handleRestartGame = () => {
+  const handleRestartGame = (text) => {
     Swal.fire({
-      title: "Are you sure you want to restart the game?",
+      title: `Are you sure you want to ${text} the game?`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -45,6 +46,7 @@ const Header = () => {
       cancelButtonText: "No",
     }).then((result) => {
       if (result.isConfirmed) {
+        history.push("/statistics");
         window.location.reload();
       }
     });
@@ -61,7 +63,7 @@ const Header = () => {
           size="large"
           type="button"
           variant="contained"
-          onClick={handleRestartGame}
+          onClick={() => handleRestartGame("restart")}
         >
           Restart Game
         </Button>
@@ -79,8 +81,7 @@ const Header = () => {
           size="large"
           type="button"
           variant="contained"
-          component={Link}
-          to="/statistics"
+          onClick={() => handleRestartGame("leave")}
         >
           Statistics
         </Button>
