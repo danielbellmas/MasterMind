@@ -14,10 +14,13 @@ export default function LevelSelect() {
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Level</InputLabel>
+        <InputLabel className={classes.select} id="select-label">
+          Level
+        </InputLabel>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          className={classes.select}
+          labelId="select-label"
+          id="select"
           value={levelSelected}
           onChange={handleChange}
         >

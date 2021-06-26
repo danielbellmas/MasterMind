@@ -28,7 +28,7 @@ const Peg = ({
   useEffect(() => {
     if (played) {
       Swal.fire({
-        title: "Changin the difficulty will restart the game",
+        title: "Changing the difficulty will restart the game",
         text: "Are you sure you want restart?",
         icon: "warning",
         showCancelButton: true,
@@ -45,8 +45,6 @@ const Peg = ({
   }, [levelSelected]);
 
   const handleMessageAfterGuess = (selectedColor) => {
-    played = true;
-
     let colorPicked = selectedColor;
     let computerColor = computerSet[index];
 
@@ -83,6 +81,7 @@ const Peg = ({
         handleMessageAfterGuess(selectedColor);
         setColor(selectedColor);
         setCurrentPegGuessedColors([...currentPegGuessedColors, selectedColor]);
+        played = true;
 
         //Filters out the color that has been selected
         setColorsDropDownList(
