@@ -35,11 +35,27 @@ const Header = () => {
       confirmButtonText: "START",
     });
   };
-
   const handleRestartGame = (text) => {
-    if (played) {
+    if (text === "Leave") {
+      if (played) {
+        Swal.fire({
+          title: `Are You Sure You Want To ${text} The Game?`,
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes",
+          cancelButtonText: "No",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            history.push("/statistics");
+            window.location.reload();
+          }
+        });
+      } else history.push("/statistics");
+    } else if (played) {
       Swal.fire({
-        title: `Are you sure you want to ${text} the game?`,
+        title: `Are You Sure You Want To ${text} The Game?`,
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -48,11 +64,10 @@ const Header = () => {
         cancelButtonText: "No",
       }).then((result) => {
         if (result.isConfirmed) {
-          history.push("/statistics");
           window.location.reload();
         }
       });
-    } else history.push("/statistics");
+    }
   };
 
   return (
@@ -66,7 +81,7 @@ const Header = () => {
           size="large"
           type="button"
           variant="contained"
-          onClick={() => handleRestartGame("restart")}
+          onClick={() => handleRestartGame("Restart")}
         >
           Restart Game
         </Button>
@@ -84,7 +99,7 @@ const Header = () => {
           size="large"
           type="button"
           variant="contained"
-          onClick={() => handleRestartGame("leave")}
+          onClick={() => handleRestartGame("Leave")}
         >
           Statistics
         </Button>

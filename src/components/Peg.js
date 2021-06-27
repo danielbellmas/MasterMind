@@ -28,7 +28,7 @@ const Peg = ({
   useEffect(() => {
     if (played) {
       Swal.fire({
-        title: "Changing the difficulty will restart the game",
+        title: "Changing The Difficulty Will Restart The Game",
         text: "Are you sure you want restart?",
         icon: "warning",
         showCancelButton: true,

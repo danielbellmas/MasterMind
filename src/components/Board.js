@@ -13,7 +13,7 @@ function Board() {
     if (numOfGuesses === 11) {
       Swal.fire({
         icon: "error",
-        title: "You Lost, Better luck next time!",
+        title: "You Lost, Better Luck Next Time!",
         showConfirmButton: true,
         confirmButtonText: "New Game",
       }).then((result) => {

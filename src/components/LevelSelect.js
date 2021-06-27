@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { InputLabel, MenuItem, FormControl, Select } from "@material-ui/core";
 import useStyles from "../styles/_levelSelect";
 import { LevelContext } from "../GameContext";
+import Swal from "sweetalert2";
 
 export default function LevelSelect() {
   const classes = useStyles();
@@ -9,6 +10,14 @@ export default function LevelSelect() {
 
   const handleChange = (event) => {
     setLevelSelected(event.target.value);
+
+    Swal.fire({
+      icon: "success",
+      title: "Difficulty Level Changed",
+      taxt: "Good Luck!",
+      showConfirmButton: false,
+      timer: 1000,
+    });
   };
 
   return (
