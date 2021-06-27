@@ -28,6 +28,8 @@ Mastermind is a code-breaking game against the computer.
 
 4. When hovering over a peg the cursor turns to a pointer, indicating it's clickable.
 
+5. Shows timed message when the level is changed.
+
 ## Rules
 
 The computer will generate a combination of 4 out of 7 unique colored pegs.
