@@ -30,8 +30,8 @@ const Header = () => {
       1. When you guess the correct color in the correct position you receive a “Direct Hit” (Black).<br/>
       2. When you guess the correct color but in the wrong position you receive a “Hit” (White).<br/>
       3. When you guess a color that does not appear in the combination you receive a “Miss” (Red).<br/><br/>
-      <b>To Start Click START and then click on one of the circles to choose a color.<br/><br/>
-      Good Luck!</b></p>`,
+      <b>To start <em>click</em> on one of the circles to choose a color.<br/><br/>
+      Good Luck!👍🍀</b></p>`,
       confirmButtonText: "START",
     });
   };
