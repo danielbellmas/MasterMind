@@ -9,7 +9,9 @@ export default function LevelSelect() {
   const [levelSelected, setLevelSelected] = useContext(LevelContext);
 
   const handleChange = (event) => {
-    setLevelSelected(event.target.value);
+    const level = event.target.value;
+    localStorage.setItem("level", level);
+    setLevelSelected(level);
 
     Swal.fire({
       icon: "success",
