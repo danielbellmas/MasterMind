@@ -4,18 +4,18 @@ export const ComputerContext = createContext();
 export const LevelContext = createContext();
 
 export const COLORS = [
-  "blue",
-  "orange",
-  "green",
-  "purple",
-  "pink",
-  "red",
-  "yellow",
-  "black",
-  "brown",
-  "aqua",
-  "chocolate",
-  "crimson",
+  "Blue",
+  "Orange",
+  "Green",
+  "Purple",
+  "Pink",
+  "Red",
+  "Yellow",
+  "Black",
+  "Brown",
+  "Aqua",
+  "Chocolate",
+  "Crimson",
 ];
 
 export const colorsByDifficulty = {
@@ -26,7 +26,9 @@ export const colorsByDifficulty = {
 
 export const ComputerProvider = (props) => {
   const [computerSet, setComputerSet] = useState([]);
-  const [levelSelected, setLevelSelected] = useState("Easy");
+  const [levelSelected, setLevelSelected] = useState(
+    localStorage.getItem("level") ? localStorage.getItem("level") : "Easy"
+  );
 
   useEffect(() => {
     createUniquePegSet();
