@@ -51,9 +51,10 @@ const Statistics = () => {
       <div className={classes.table}>
         <CSVLink filename="MasterMind_Report.csv" data={data}>
           <i
-            class="fa fa-download"
+            class="fa fa-download fa-large"
             aria-hidden="true"
             title="Export to CSV"
+            style={{ fontSize: "3rem" }}
           ></i>
         </CSVLink>
         <StatisticsTable data={data} />

@@ -10,7 +10,10 @@ export default makeStyles(() => ({
     backgroundImage: `url(${background})`,
   },
   btn: {
-    alignContent: "flex-start",
+    position: "absolute",
+    top: 50,
+    left: 50,
+    fontSize: "1.5rem",
   },
   table: {
     padding: "10px",

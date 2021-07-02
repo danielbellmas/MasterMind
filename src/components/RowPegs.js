@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Grid } from "@material-ui/core";
-import Peg from "../components/Peg";
+import Peg from "./Peg";
 import SideBar from "./SideBar";
 import { COLORS, ComputerContext, LevelContext } from "../GameContext";
 import Swal from "sweetalert2";
@@ -34,6 +34,7 @@ const RowPegs = ({ numOfGuesses, setNumOfGuesses, disabled, rowIndex }) => {
           title: "YOU WON!",
           showConfirmButton: true,
           confirmButtonText: "New Game",
+          allowOutsideClick: false,
         }).then((result) => {
           localStorage.setItem(
             "won",
