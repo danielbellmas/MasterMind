@@ -16,16 +16,31 @@ export default function BasicTable({ data }) {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Won</TableCell>
-            <TableCell align="center">Lost</TableCell>
-            <TableCell align="center">Direct Hit</TableCell>
-            <TableCell align="center">Hit</TableCell>
-            <TableCell align="center">Miss</TableCell>
+            <TableCell className={classes.tableCell} align="center">
+              Won
+            </TableCell>
+            <TableCell className={classes.tableCell} align="center">
+              Lost
+            </TableCell>
+            <TableCell className={classes.tableCell} align="center">
+              Direct Hit
+            </TableCell>
+            <TableCell className={classes.tableCell} align="center">
+              Hit
+            </TableCell>
+            <TableCell className={classes.tableCell} align="center">
+              Miss
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {data[1]?.map((row) => (
-            <TableCell component="th" scope="row" align="center">
+            <TableCell
+              className={classes.tableCell}
+              component="th"
+              scope="row"
+              align="center"
+            >
               {row === null ? 0 : row}
             </TableCell>
           ))}
