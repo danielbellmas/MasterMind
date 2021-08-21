@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from "react-ga";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import { Container } from "@material-ui/core";
@@ -7,6 +8,9 @@ import Header from "./components/Header";
 import Statistics from "./components/Statistics/Statistics";
 
 const App = () => {
+  ReactGA.initialize("UA-202264338-2");
+  ReactGA.pageview(window.location.pathname + window.location.search);
+
   return (
     <Router>
       <Switch>
