@@ -51,7 +51,7 @@ If the player doesn’t manage to guess the correct combination within 10 attemp
 Install mastermind with npm
 
 ```bash
-  npm install mastermind
+  npm install
   cd mastermind
   npm start
 ```
